@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>叶枫 - AIGC视频设计师 | 技术美术专家</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/v4-shims.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e497c',
+                        secondary: '#4a90e2',
+                        accent: '#ff6b35',
+                        dark: '#2c3e50',
+                        light: '#f8f9fa'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+            .gradient-bg {
+                background: linear-gradient(135deg, #1e497c 0%, #4a90e2 100%);
+            }
+            .skill-tag {
+                @apply inline-block px-3 py-1 rounded-full text-xs font-semibold mr-2 mb-2;
+            }
+        }
+    </style>
+</head>
+<body class="font-inter bg-gray-50 text-gray-800">
+    <!-- 顶部导航 -->
+    <nav class="bg-white shadow-md fixed w-full z-10 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-xl font-bold text-primary">
+                <i class="fa fa-paint-brush mr-2"></i>叶枫
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#about" class="text-gray-600 hover:text-primary transition-colors">关于我</a>
+                <a href="#skills" class="text-gray-600 hover:text-primary transition-colors">技能</a>
+                <a href="#experience" class="text-gray-600 hover:text-primary transition-colors">工作经历</a>
+                <a href="#projects" class="text-gray-600 hover:text-primary transition-colors">项目经验</a>
+                <a href="#education" class="text-gray-600 hover:text-primary transition-colors">教育背景</a>
+            </div>
+            <button class="md:hidden text-gray-600" id="menuBtn">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+        <!-- 移动端菜单 -->
+        <div class="md:hidden hidden bg-white shadow-lg absolute w-full" id="mobileMenu">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="#about" class="text-gray-600 hover:text-primary py-2 transition-colors">关于我</a>
+                <a href="#skills" class="text-gray-600 hover:text-primary py-2 transition-colors">技能</a>
+                <a href="#experience" class="text-gray-600 hover:text-primary py-2 transition-colors">工作经历</a>
+                <a href="#projects" class="text-gray-600 hover:text-primary py-2 transition-colors">项目经验</a>
+                <a href="#education" class="text-gray-600 hover:text-primary py-2 transition-colors">教育背景</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <header class="gradient-bg text-white pt-28 pb-20 md:pt-36 md:pb-28">
+        <div class="container mx-auto px-4 text-center">
+            <!-- 头像 -->
+            <div class="mb-6 relative group">
+                <img src="leon-avatar.png" alt="叶枫" class="relative w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white/30 mx-auto shadow-2xl object-cover transform hover:scale-105 transition-transform duration-500">
+            </div>
+            
+            <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold mb-4 text-shadow">
+                叶枫 <span class="text-2xl font-light opacity-80">LEON</span>
+            </h1>
+            <h2 class="text-[clamp(1.2rem,3vw,1.8rem)] font-light mb-8 opacity-90">
+                AIGC视频设计师 / AIGC美术负责人 / 资深技术美术
+            </h2>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 mt-8">
+                <!-- 联系方式 -->
+                <div class="flex flex-col md:flex-row gap-4 text-sm text-white/90">
+                    <div class="flex items-center bg-white/10 px-5 py-2 rounded-full backdrop-blur-sm hover:bg-white/20 transition-colors">
+                        <i class="fa fa-phone mr-2"></i>
+                        <span>13602886320</span>
+                    </div>
+                    <a href="https://www.voltchina.net" target="_blank" class="flex items-center bg-white/10 px-5 py-2 rounded-full backdrop-blur-sm hover:bg-white/20 transition-colors cursor-pointer">
+                        <i class="fa fa-globe mr-2"></i>
+                        <span>www.voltchina.net</span>
+                    </a>
+                </div>
+                
+                <!-- 醒目的作品集按钮 -->
+                <a href="https://space.bilibili.com/1673698055" class="group inline-flex items-center px-8 py-3 bg-yellow-400 hover:bg-yellow-300 text-blue-900 rounded-full font-bold shadow-[0_0_20px_rgba(250,204,21,0.4)] hover:shadow-[0_0_25px_rgba(250,204,21,0.6)] transform hover:-translate-y-1 transition-all duration-300" target="_blank">
+                    <i class="fa fa-play-circle mr-2 text-xl group-hover:scale-110 transition-transform"></i>
+                    <span class="text-lg">查看视频作品集</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-16">
+        <!-- 关于我 -->
+        <section id="about" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-primary mb-4">
+                    <i class="fa fa-user-circle-o mr-3"></i>关于我
+                </h2>
+                <div class="w-20 h-1 bg-accent mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-8 md:p-12 card-hover">
+                <div class="prose max-w-none">
+                    <p class="text-lg leading-relaxed mb-6">
+                        拥有10年一线游戏美术设计与团队管理经验，能够敏锐把控构图、光影与镜头语言，解决AI生成视频"有画质无美感"的痛点。
+                    </p>
+                    <p class="text-lg leading-relaxed mb-6">
+                        2022年起率先将AIGC引入商业工作流。精通ComfyUI节点搭建与LoRA模型训练，擅长通过技术手段解决角色一致性与画面闪烁问题。
+                    </p>
+                    <p class="text-lg leading-relaxed">
+                        具备从脚本策划、分镜绘制、AI素材生成到后期剪辑合成的全流程创作能力，致力于探索高效率、高质量的AIGC视频商业化解决方案。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 技能 -->
+        <section id="skills" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-primary mb-4">
+                    <i class="fa fa-cogs mr-3"></i>核心技能
+                </h2>
+                <div class="w-20 h-1 bg-accent mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- 视频模型 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                            <i class="fa fa-video-camera text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary">视频模型</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="skill-tag bg-primary/10 text-primary">Runway (Gen-2/3)</div>
+                        <div class="skill-tag bg-primary/10 text-primary">Pika</div>
+                        <div class="skill-tag bg-primary/10 text-primary">Kling(可灵)</div>
+                        <div class="skill-tag bg-primary/10 text-primary">Vidu</div>
+                    </div>
+                    <p class="text-gray-600 mt-4 text-sm">
+                        熟练掌握主流视频模型，擅长使用提示词与运镜参数控制画面动态
+                    </p>
+                </div>
+
+                <!-- AI绘画 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center mr-4">
+                            <i class="fa fa-paint-brush text-secondary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary">AI绘画</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="skill-tag bg-secondary/10 text-secondary">Midjourney</div>
+                        <div class="skill-tag bg-secondary/10 text-secondary">Stable Diffusion</div>
+                        <div class="skill-tag bg-secondary/10 text-secondary">ComfyUI</div>
+                    </div>
+                    <p class="text-gray-600 mt-4 text-sm">
+                        专家级使用者，精通工作流搭建，能够实现精准的画面控制
+                    </p>
+                </div>
+
+                <!-- 技术能力 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mr-4">
+                            <i class="fa fa-code text-accent text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-accent">技术能力</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="skill-tag bg-accent/10 text-accent">AnimateDiff</div>
+                        <div class="skill-tag bg-accent/10 text-accent">ControlNet</div>
+                        <div class="skill-tag bg-accent/10 text-accent">IPAdapter</div>
+                    </div>
+                    <p class="text-gray-600 mt-4 text-sm">
+                        精通各种技术插件，实现复杂的画面控制和效果
+                    </p>
+                </div>
+
+                <!-- 模型训练 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center mr-4">
+                            <i class="fa fa-database text-green-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-green-500">模型训练</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="skill-tag bg-green-500/10 text-green-500">LoRA</div>
+                        <div class="skill-tag bg-green-500/10 text-green-500">Dreambooth</div>
+                    </div>
+                    <p class="text-gray-600 mt-4 text-sm">
+                        能够根据项目需求训练特定画风或角色模型，确保商业交付一致性
+                    </p>
+                </div>
+
+                <!-- 后期制作 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 md:col-span-2 card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-purple-500/10 rounded-full flex items-center justify-center mr-4">
+                            <i class="fa fa-film text-purple-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-purple-500">后期制作</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="skill-tag bg-purple-500/10 text-purple-500">Premiere</div>
+                        <div class="skill-tag bg-purple-500/10 text-purple-500">After Effects</div>
+                        <div class="skill-tag bg-purple-500/10 text-purple-500">剪映</div>
+                    </div>
+                    <p class="text-gray-600 mt-4 text-sm">
+                        熟练使用专业后期软件进行特效合成与剪辑，精通快速短视频产出
+                    </p>
+                </div>
+            </div>
+
+            <!-- 手绘能力 -->
+            <div class="mt-8 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-xl p-8 border border-primary/10">
+                <div class="flex items-center mb-4">
+                    <i class="fa fa-pencil text-primary text-2xl mr-4"></i>
+                    <h3 class="text-xl font-bold text-primary">手绘能力</h3>
+                </div>
+                <p class="text-lg text-gray-700">
+                    极强的手绘造型能力与色彩理论基础，能够快速进行分镜绘制（Storyboard）与画面精修（Paint-over）。
+                </p>
+            </div>
+        </section>
+
+        <!-- 工作经历 -->
+        <section id="experience" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-primary mb-4">
+                    <i class="fa fa-briefcase mr-3"></i>工作经历
+                </h2>
+                <div class="w-20 h-1 bg-accent mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="space-y-8">
+                <!-- 热火互娱 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-primary">热火互娱（三七项目）</h3>
+                            <p class="text-gray-600">高级AIGC美术 / 技术美术</p>
+                        </div>
+                        <div class="mt-2 md:mt-0 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
+                            2023.09 - 至今
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-accent mt-1 mr-3"></i>
+                            <span><strong>工作流优化：</strong>在大型游戏项目中引入Stable Diffusion + ControlNet工作流，辅助角色原画与场景概念设计，将草图到细化阶段的生产效率提升30%。</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-accent mt-1 mr-3"></i>
+                            <span><strong>动态视觉探索：</strong>利用前沿的AI技术将静态的游戏角色立绘转化为高品质动态展示视频（Live2D替代方案探索），用于内部宣发与Demo演示。</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-accent mt-1 mr-3"></i>
+                            <span><strong>AI资产修缮：</strong>负责对AI生成的素材进行高精度的手绘修缮与重绘，确保最终产出符合一线大厂的美术品质标准。</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 怪力视效 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-secondary">怪力视效</h3>
+                            <p class="text-gray-600">AIGC美术负责人</p>
+                        </div>
+                        <div class="mt-2 md:mt-0 px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm font-medium">
+                            2022.10 - 2023.07
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-accent mt-1 mr-3"></i>
+                            <span><strong>从0到1搭建管线：</strong>主导部门的美术数字化转型，搭建基于Midjourney的前期概念设计工作流，大幅缩短创意验证周期。</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-accent mt-1 mr-3"></i>
+                            <span><strong>LoRA模型训练与落地：</strong>针对公司特定项目风格，训练专属LoRA模型，解决了AI生成内容风格割裂的问题，成功将AI产能供纳入正式生产环节，整体供给效率提升40%。</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-accent mt-1 mr-3"></i>
+                            <span><strong>AI视频预演(Pre-viz)：</strong>利用AI工具快速制作动态分镜与概念短片，辅助视频团队在拍摄/制作前进行低成本的创意验证。</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-accent mt-1 mr-3"></i>
+                            <span><strong>技术赋能：</strong>编写内部AIGC操作手册，并组织多场内部培训，指导原画师与UI设计师掌握AI辅助工具。</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 赫德时代 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-green-500">赫德时代</h3>
+                            <p class="text-gray-600">资深角色原画</p>
+                        </div>
+                        <div class="mt-2 md:mt-0 px-4 py-2 bg-green-500/10 text-green-500 rounded-full text-sm font-medium">
+                            2021.09 - 2022.09
+                        </div>
+                    </div>
+                    <p class="text-gray-700">
+                        负责核心项目组的写实类角色设计与立绘绘制，把控整体美术风格。（在此期间积累了深厚的写实唯美画风审美，为现在的AI写实视频生成打下坚实基础）。
+                    </p>
+                </div>
+
+                <!-- 早期经历 -->
+                <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-purple-500">广州趣乐 / 朝凡网络 / 长沙青丘</h3>
+                            <p class="text-gray-600">主笔原画 / 美术组长</p>
+                        </div>
+                        <div class="mt-2 md:mt-0 px-4 py-2 bg-purple-500/10 text-purple-500 rounded-full text-sm font-medium">
+                            2014.06 - 2021.09
+                        </div>
+                    </div>
+                    <p class="text-gray-700">
+                        历任主笔原画、美术组长。拥有多年带队经验，熟悉多风格（二次元/国风/写实）的游戏美术开发流程，具备极强的抗压能力与项目推动力。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目经验 (已修复视频显示问题) -->
+        <section id="projects" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-primary mb-4">
+                    <i class="fa fa-folder-open mr-3"></i>项目经验
+                </h2>
+                <div class="w-20 h-1 bg-accent mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- 项目：Volt China -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover md:col-span-2">
+                    <div class="bg-gradient-to-r from-primary to-purple-600 p-6 text-white">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Volt China（海外科技垂直媒体创始人）</h3>
+                                <p class="text-white/90 text-sm">全栈运营 | 0-1 搭建面向欧美市场的中国硬科技分析品牌</p>
+                            </div>
+                            <a href="https://VoltChina.net" target="_blank" class="mt-2 md:mt-0 px-4 py-2 bg-white/20 hover:bg-white/30 rounded-full text-sm transition-colors">
+                                <i class="fa fa-globe mr-2"></i>VoltChina.net
+                            </a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-6 text-gray-700">
+                            <div>
+                                <h4 class="font-bold text-primary mb-2"><i class="fa fa-star mr-2"></i>核心验证</h4>
+                                <p class="bg-blue-50 p-3 rounded-lg border border-blue-100">
+                                    证明了利用 AI 工具可单人实现跨语言、跨技术栈的复杂商业项目落地。利用 AIGC 技术独立完成选题调研、英文脚本、视频制作、官网开发、商业变现全流程。
+                                </p>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-bold text-primary mb-2"><i class="fa fa-bar-chart mr-2"></i>数据成果</h4>
+                                    <ul class="list-disc list-inside space-y-1 text-sm">
+                                        <li>频道总播放量 <strong>100万+</strong></li>
+                                        <li>单支长视频最高播放 <strong>19.5万</strong></li>
+                                        <li>平均完播率极高，用户粘性强</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-primary mb-2"><i class="fa fa-usd mr-2"></i>商业闭环</h4>
+                                    <p class="text-sm">
+                                        独立开发官网，打通 Gumroad 支付与 Substack 邮件系统，成功跑通<br>
+                                        <span class="font-bold text-purple-600">“内容引流 -> 网站转化 -> 付费报告”</span><br>
+                                        的 B2B 变现路径。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 项目1：AIGC剧情短视频 (含修复后的Bilibili视频) -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <!-- 视频播放区域 -->
+                    <div class="relative w-full" style="padding-top: 56.25%;">
+                        <iframe 
+                            class="absolute top-0 left-0 w-full h-full" 
+                            src="https://player.bilibili.com/player.html?isOutside=true&bvid=BV144UGBPENS&p=1&autoplay=0&high_quality=1" 
+                            scrolling="no" 
+                            border="0" 
+                            frameborder="0" 
+                            framespacing="0" 
+                            allowfullscreen="true">
+                        </iframe>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-primary to-secondary p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">AIGC剧情短视频全流程制作</h3>
+                        <p class="text-white/90 text-sm">《I realized I wasn't human》预告片</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-4 text-gray-700">
+                            <div>
+                                <h4 class="font-bold text-primary mb-2">项目概述</h4>
+                                <p>独立完成一部90秒的叙事类AI短片，旨在探索AI视频的角色一致性与叙事连贯性。</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary mb-2">技术栈</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs">ChatGPT</span>
+                                    <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs">Midjourney</span>
+                                    <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs">ComfyUI</span>
+                                    <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs">Kling</span>
+                                    <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs">Vidu</span>
+                                    <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs">Premiere</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary mb-2">成果</h4>
+                                <p>成功解决了传统图生视频中人物面部崩坏的问题，建立了一套可复用的"固定角色+多场景切换"的标准工作流。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 项目2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-secondary to-accent p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">游戏风格化LoRA模型训练</h3>
+                        <p class="text-white/90 text-sm">韩式厚涂风模型开发</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-4 text-gray-700">
+                            <div>
+                                <h4 class="font-bold text-secondary mb-2">项目描述</h4>
+                                <p>为特定项目训练一套"韩式厚涂风"LoRA模型，解决AI生成内容风格不一致的问题。</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-secondary mb-2">技术挑战</h4>
+                                <ul class="list-disc list-inside space-y-1">
+                                    <li>保持画风一致性</li>
+                                    <li>提高Tag响应率</li>
+                                    <li>平衡模型泛化能力</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-secondary mb-2">成果</h4>
+                                <p>经过5轮参数调优，模型在保持画风的同时，Tag响应率达到90%以上，被团队广泛应用于Icon与宣传图的辅助生成中。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 教育背景 -->
+        <section id="education" class="mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-primary mb-4">
+                    <i class="fa fa-graduation-cap mr-3"></i>教育背景
+                </h2>
+                <div class="w-20 h-1 bg-accent mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-8 max-w-2xl mx-auto card-hover">
+                <div class="flex flex-col md:flex-row md:items-center justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-primary">湖南师范大学工学院</h3>
+                        <p class="text-gray-600 mt-1">视觉传达 | 本科</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
+                        2003.09 - 2007.06
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 视频作品二维码 -->
+        <section class="mb-20 text-center">
+            <div class="bg-white rounded-xl shadow-lg p-8 inline-block card-hover transform hover:scale-105 transition-transform duration-300">
+                <img src="qrcode_leon11-ai.github.io.png" alt="视频作品二维码" class="w-48 h-48 mx-auto mb-4">
+                <p class="text-gray-600 font-medium text-lg tracking-wide">
+                    <i class="fa fa-qrcode mr-2 text-primary"></i>(扫描二维码查看视频作品)
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h3 class="text-xl font-bold mb-4">叶枫</h3>
+                <p class="text-white/70 mb-6">AIGC视频设计师 | 技术美术专家</p>
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="tel:13602886320" class="text-white/70 hover:text-white transition-colors">
+                        <i class="fa fa-phone text-xl"></i>
+                    </a>
+                    <a href="mailto:273326413@qq.com" class="text-white/70 hover:text-white transition-colors">
+                        <i class="fa fa-envelope text-xl"></i>
+                    </a>
+                    <a href="https://space.bilibili.com/1673698055" class="text-white/70 hover:text-white transition-colors" target="_blank">
+                        <i class="fa fa-link text-xl"></i>
+                    </a>
+                </div>
+                <p class="text-white/50 text-sm">© 2025 叶枫. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/95', 'backdrop-blur-sm');
+                navbar.classList.remove('bg-white');
+            } else {
+                navbar.classList.remove('bg-white/95', 'backdrop-blur-sm');
+                navbar.classList.add('bg-white');
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    // 关闭移动端菜单
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // 页面加载动画
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+
+        // 元素动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // 观察所有卡片元素
+        document.querySelectorAll('.card-hover').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
