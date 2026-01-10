@@ -7,6 +7,10 @@
 您可以点击以下链接在线查看我的简历：
 [https://LEON11-AI.github.io/-resume-/](https://LEON11-AI.github.io/-resume-/)
 
+或者扫描下方二维码直接访问：
+
+![简历二维码](resume_qr.png)
+
 *(注意：如果点击无法访问，请确保已在 GitHub 仓库的 Settings -> Pages 中开启了 GitHub Pages 服务，并选择 main 分支作为源)*
 
 ## 项目介绍
